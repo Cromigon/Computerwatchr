@@ -1,0 +1,62 @@
+<web-app id="WebApp_ID" version="2.4"
+ xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+ <display-name>Spring Web MVC Application</display-name>
+      <context-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>
+      /WEB-INF/applicationContext.xml
+      </param-value>
+   </context-param>
+   <listener>
+  <listener-class>
+   org.springframework.web.context.ContextLoaderListener
+  </listener-class>
+   </listener>
+   <listener>
+  <listener-class>
+   org.springframework.web.context.request.RequestContextListener
+  </listener-class>
+   </listener>
+
+   <!-- Project Stage Level -->
+   <context-param>
+     <param-name>javax.faces.PROJECT_STAGE</param-name>
+     <param-value>Development</param-value>
+   </context-param>
+
+   <!-- Welcome Page -->
+   <welcome-file-list>
+     <welcome-file>/pages/index.xhtml</welcome-file>
+   </welcome-file-list>
+
+   <!-- JSF Servlet -->
+   <servlet>
+     <servlet-name>Faces Servlet</servlet-name>
+     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+     <load-on-startup>1</load-on-startup>
+   </servlet>
+   <servlet>
+   	<description>
+   	</description>
+   	<display-name>computerServlet</display-name>
+   	<servlet-name>computerServlet</servlet-name>
+   	<servlet-class>nu.fulkod.computer.servlet.computerServlet</servlet-class>
+   </servlet>
+
+   <!-- Mapping -->
+   <servlet-mapping>
+     <servlet-name>Faces Servlet</servlet-name>
+     <url-pattern>*.jsf</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
+     <servlet-name>Faces Servlet</servlet-name>
+     <url-pattern>*.faces</url-pattern>
+   </servlet-mapping>
+   <!-- Dumping Servlet -->
+   <servlet-mapping>
+   	<servlet-name>computerServlet</servlet-name>
+   	<url-pattern>/computerServlet</url-pattern>
+   </servlet-mapping>
+</web-app>

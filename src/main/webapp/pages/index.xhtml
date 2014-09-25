@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Welcome to Computerwatchr</title>
+</h:head>
+<h:body>
+	<h:form>
+		<table>
+			<tr>
+				<td><h:outputLabel for="id" value="Id : " /></td>
+				<td><p:inputText id="id" value="#{computerMB.id}">
+						<f:converter converterId="javax.faces.Integer" />
+						<p:ajax event="blur" update="idMsg" />
+					</p:inputText> <p:message id="idMsg" for="id" display="icon" /></td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="name" value="Name : " /></td>
+				<td><p:inputText id="name" value="#{computerMB.name}">
+						<f:validateLength minimum="5" />
+						<p:ajax event="blur" update="nameMsg" />
+					</p:inputText> <p:message id="nameMsg" for="name" display="icon" /></td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="services" value="Services (CSV) : " /></td>
+				<td><p:inputText id="services" value="#{computerMB.services}">
+						<f:validateLength minimum="5" />
+						<p:ajax event="blur" update="servicesMsg" />
+					</p:inputText> <p:message id="servicesMsg" for="services" display="icon" /></td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="ipAddress" value="Ip Address : " /></td>
+				<td><p:inputText id="ipAddress" value="#{computerMB.ipAddress}">
+						<f:validateLength minimum="5" />
+						<p:ajax event="blur" update="ipAddressMsg" />
+					</p:inputText> <p:message id="ipAddressMsg" for="ipAddress" display="icon" /></td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="operatingSystem"
+						value="Operating System : " /></td>
+				<td><p:inputText id="operatingSystem"
+						value="#{computerMB.operatingSystem}">
+						<f:validateLength minimum="5" />
+						<p:ajax event="blur" update="operatingSystemMsg" />
+					</p:inputText> <p:message id="operatingSystemMsg" for="operatingSystem"
+						display="icon" /></td>
+			</tr>
+			<tr>
+				<td><p:commandButton id="addComputer" value="Add"
+						action="#{computerMB.addComputer}" ajax="false" /></td>
+			</tr>
+		</table>
+	</h:form>
+</h:body>
+</html>
