@@ -23,4 +23,5 @@ Note to self (and others)
 =========================
 
 Servlet: http://$TOMCAT_URL/computerwatchr/computerServlet
+
 Index: http://$TOMCAT_URL/computerwatchr/pages/index.jsf
