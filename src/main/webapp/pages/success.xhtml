@@ -2,39 +2,8 @@
  xmlns:h="http://java.sun.com/jsf/html"
  xmlns:f="http://java.sun.com/jsf/core"
  xmlns:p="http://primefaces.org/ui">
-<h:head>
- <title>Computerwatchr</title>
-</h:head>
-<h:body>
- <h:form>
-  <h:outputText value="Computer(s) : "></h:outputText>
-  <p:dataTable id="computers" var="computer" value="#{computerMB.computerList}" style="width: 50%">
-   <p:column>
-    <f:facet name="header">
-     <h:outputText value="Name" />
-    </f:facet>
-    <h:outputText value="#{computer.name}" />
-   </p:column>
-   <p:column>
-    <f:facet name="header">
-     <h:outputText value="Services" />
-    </f:facet>
-    <h:outputText value="#{computer.services}" />
-   </p:column>
-   <p:column>
-    <f:facet name="header">
-     <h:outputText value="Ip Address" />
-    </f:facet>
-    <h:outputText value="#{computer.ipAddress}" />
-   </p:column>
-   <p:column>
-    <f:facet name="header">
-     <h:outputText value="Operating System" />
-    </f:facet>
-    <h:outputText value="#{computer.operatingSystem}" />
-   </p:column>
-  </p:dataTable>
- </h:form>
-</h:body>
-
+<script type="text/javascript">
+opener.location.reload(1);
+window.close();
+</script>
 </html>
