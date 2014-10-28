@@ -3,6 +3,8 @@ package nu.fulkod.managed.bean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.*;
 
 import nu.fulkod.computer.service.IComputerService;
@@ -21,7 +23,7 @@ public class ComputerMBean implements Serializable {
 	@ManagedProperty(value="#{ComputerService}")
 	IComputerService computerService;
 	
-	List<Computer> computerList;
+	List<Computer> computerList = null;
 
 	private int id;
 	private String name;
@@ -46,9 +48,20 @@ public class ComputerMBean implements Serializable {
 	}
 	
 	public List<Computer> getComputerList() {
-		computerList = new ArrayList<Computer>();
-		computerList.addAll(getComputerService().getComputers());
+		if (computerList == null) {
+			computerList = new ArrayList<Computer>();
+			computerList.addAll(getComputerService().getComputers());
+		}
 		return computerList;
+	}
+
+	public ComputerMBean() {
+
+	}
+
+	@PostConstruct
+	public void init() {
+		computerList = getComputerList();
 	}
 
 	public int getId() {
