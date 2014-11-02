@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Welcome to Computerwatchr</title>
+</h:head>
+<h:body>
+	<h:form>
+		<table>
+			<tr>
+				<td><h:outputLabel for="name" value="Name : " /></td>
+				<td><h:outputText value="#{computerMB.name}" /></td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="services" value="Services (CSV) : " /></td>
+				<td><h:outputText value="#{computerMB.services}" /></td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="ipAddress" value="Ip Address : " /></td>
+				<td><h:outputText value="#{computerMB.ipAddress}" /></td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="operatingSystem"
+						value="Operating System : " /></td>
+				<td><h:outputText value="#{computerMB.operatingSystem}" /></td>
+			</tr>
+			<tr>
+				<td><p:commandButton id="addComputer" value="Add"
+						action="#{computerMB.addComputer}" ajax="false" /></td>
+			</tr>
+		</table>
+	</h:form>
+</h:body>
+</html>

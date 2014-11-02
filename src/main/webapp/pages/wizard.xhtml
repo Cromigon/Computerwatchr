@@ -8,7 +8,7 @@
 <h:body>
 	<h:form>
 		<table>
-			<tr>
+			<tr style="display:none;">
 				<td><h:outputLabel for="id" value="Id : " /></td>
 				<td><p:inputText id="id" value="#{computerMB.id}">
 						<f:converter converterId="javax.faces.Integer" />
@@ -47,8 +47,8 @@
 						display="icon" /></td>
 			</tr>
 			<tr>
-				<td><p:commandButton id="addComputer" value="Add"
-						action="#{computerMB.addComputer}" ajax="false" /></td>
+				<td><p:commandButton id="next" value="Next"
+						action="#{computerMB.next}" ajax="false" /></td>
 			</tr>
 		</table>
 	</h:form>

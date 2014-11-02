@@ -11,10 +11,11 @@ import nu.fulkod.computer.service.IComputerService;
 import nu.fulkod.model.Computer;
 
 import org.primefaces.event.FlowEvent;
+import org.primefaces.push.annotation.Singleton;
 import org.springframework.dao.DataAccessException;
 
 @ManagedBean(name="computerMB")
-@ViewScoped
+@SessionScoped
 public class ComputerMBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private static final String SUCCESS = "success";
@@ -40,6 +41,9 @@ public class ComputerMBean implements Serializable {
 			computer.setIpAddress(getIpAddress());
 			computer.setOperatingSystem(getOperatingSystem());
 			getComputerService().addComputer(computer);
+			clear();
+			computerList = null;
+			init();
 			return SUCCESS;
 		} catch (DataAccessException e) {
 			e.printStackTrace();
@@ -118,5 +122,17 @@ public class ComputerMBean implements Serializable {
 	
 	public String onFlowProcess(FlowEvent event) {
 		return event.getNewStep();
+	}
+	
+	public String next() {
+		return "confirm";
+	}
+	
+	public void clear() {
+		setId(0);
+		setIpAddress(null);
+		setName(null);
+		setOperatingSystem(null);
+		setServices(null);
 	}
 }
